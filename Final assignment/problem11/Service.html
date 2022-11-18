@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services Page</title>
+    <script
+      src="https://kit.fontawesome.com/15dc364de3.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        padding: 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: rgb(62, 105, 215);
+        display: flex;
+        justify-content: space-around;
+        color: white;
+      }
+      li p {
+        font-size: 15px;
+        font-weight: 600;
+        color: rgb(128, 0, 92);
+        border: 1px dotted black;
+      }
+
+      li em {
+        display: block;
+        padding-top: 10px;
+        font-size: 25px;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      li a {
+        display: block;
+        color: white;
+        font-size: 20px;
+        padding: 12px 14px;
+        text-decoration: none;
+      }
+
+      li a:hover:not(.active) {
+        background-color: rgb(179, 160, 160);
+        color: blue;
+      }
+
+      footer {
+        color: white;
+        text-align: center;
+        background-color: rgb(62, 105, 215);
+        padding: 0.5px;
+      }
+
+      .service-container {
+        padding: 40px 70px;
+      }
+      .services {
+        display: flex;
+      }
+
+      .cardservice {
+        text-align: center;
+        border: 2px solid rgb(166, 162, 162);
+        padding: 0px 0px 30px;
+        margin: 10px;
+        border-radius: 15px;
+      }
+      .cardservice img {
+        width: 40%;
+        height: 40%;
+      }
+      .cardservice button {
+        background-color: rgb(62, 105, 215);
+        border: 0;
+        padding: 10px;
+        color: white;
+        border-radius: 5px;
+      }
+      .offer {
+        color: red;
+        margin: 6px;
+        font-weight: 600;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav>
+        <ul>
+          <li><em>AutoMob-Mechanic</em></li>
+          <li><p>Hi Johnson</p></li>
+          <li><a href="./home.html">Home </a></li>
+          <li><a href="./Reports.html">Reports</a></li>
+          <li><a href="#">Booking</a></li>
+          <li><a href="#">Logout </a></li>
+          <li>
+            <a href="#"
+              >contact@automob.co.in <i class="fa-regular fa-envelope"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#">999-999-9999<i class="fa-solid fa-phone"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="service-container">
+        <h2>Car Repair and Service</h2>
+        <p>
+          Our representatives are professionaly trained and skilled with latest
+          and futuristic techniques to provide a best quality service.
+        </p>
+        <p>
+          At AutoMob-Mechanic,we provide a high class servise to the customers
+          for their happy and memorable driving experience.
+        </p>
+        <div class="services"></div>
+        <p class="offer">
+          <em> **Offer ends in: <span id="offer-time"> </span></em>
+        </p>
+      </div>
+    </main>
+    <footer>
+      <p>Copyright @ 2008 AutoMob-Mechanic. All Rights Reserved.</p>
+    </footer>
+    <script>
+      let arr = [
+        {
+          title: "Preventive Maintainence Services",
+          img: "https://e7.pngegg.com/pngimages/78/979/png-clipart-preventive-maintenance-service-machine-facility-management-facilities-management-company-service.png",
+          des: "Periodically check and keep you car running",
+          offer: "20%",
+        },
+        {
+          title: "Body Repair Services",
+          img: "https://e7.pngegg.com/pngimages/78/979/png-clipart-preventive-maintenance-service-machine-facility-management-facilities-management-company-service.png",
+          des: "Full chase body repair provides by the experts",
+          offer: "10%",
+        },
+        {
+          title: "Car Care Services",
+          img: "https://e7.pngegg.com/pngimages/78/979/png-clipart-preventive-maintenance-service-machine-facility-management-facilities-management-company-service.png",
+          des: "Get your car sparking clean in just minutes",
+          offer: "15%",
+        },
+      ];
+
+      var cardservice = "";
+      arr.forEach((e) => {
+        cardservice += `<div class="cardservice">
+        <h4>${e.title}</h4>
+        <img
+          src='${e.img}'
+          alt=""
+        />
+        <p>${e.des}</p>
+        <p><em>Offer: ${e.offer}</em></p>
+        <button>More Details</button>
+      </div>`;
+      });
+      document.querySelector(".services").innerHTML = cardservice;
+      setInterval(offertimer, 1000);
+      var seconds = 60;
+      var minutes = 10;
+      function offertimer() {
+        seconds = parseInt(seconds);
+        minutes = parseInt(minutes);
+        seconds--;
+
+        if (seconds == 0) {
+          minutes = minutes - 1;
+          seconds = 60;
+        }
+
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+        if (minutes < 10) {
+          minutes = "0" + minutes;
+        }
+        document.getElementById("offer-time").innerHTML =
+          minutes + " m :" + seconds + " s ";
+      }
+    </script>
+  </body>
+</html>

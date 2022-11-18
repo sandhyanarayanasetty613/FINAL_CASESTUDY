@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Objects in JavaScript by Object literal example</title>
+</head>
+<body>
+    <script>
+        console.log('sample1 code with object literal syntax');
+        //sample1 code
+        // "object literal" syntax, create an object       
+        let course = {};
+        course.name = "JavaScript";// by key "name" store value "JavaScript"
+        course.language = 'scripting'; // by key "language" store value "scripting"
+
+        console.log("Object Literal - Course object: ", course)
+        console.log("Object Literal - with dot notation-->Property name value is: " + course.name);
+        console.log("Object Literal - with dot notation-->Property language value is: " + course.language);
+        console.log("Object Literal - with bracket notation-->Property name value is: " + course['name']);
+        console.log("Object Literal - with bracket notation-->Property language value is: " + course['language']);
+        console.log("Object Literal - Course object length: ", Object.getOwnPropertyNames(course).length)
+        console.log("Course Object literal type? : ", typeof course);// object
+
+        console.log('sample2 code with initialize an object with key-value pairs syntax');
+        //sample2 code
+        //initialize an object with key-value pairs, create an object
+        let lecture = {
+            course: 'JavaScript',
+            version: 'ES6',
+            language: 'Scripting'
+        }
+
+        console.log("Object Literal - Lecture object: ", lecture)
+        console.log("Object Literal - key course value: " + lecture.course + ", with key version value: " + lecture.version + " is a " + lecture.language);
+        console.log("Object Literal - key course value: " + lecture['course'] + ", with key version: " + lecture.version + " is a " + lecture.language);
+        console.log("Object Literal - lecture object length: ", Object.getOwnPropertyNames(lecture).length)
+        console.log("lecture Object literal type? : ", typeof lecture);// object
+    </script>
+</body>
+</html>

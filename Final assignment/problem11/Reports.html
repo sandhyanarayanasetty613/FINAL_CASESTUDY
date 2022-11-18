@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reports</title>
+    <script
+      src="https://kit.fontawesome.com/15dc364de3.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        padding: 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: rgb(62, 105, 215);
+        display: flex;
+        justify-content: space-around;
+        color: white;
+      }
+      li p {
+        font-size: 15px;
+        font-weight: 600;
+        color: rgb(128, 0, 92);
+        border: 1px dotted black;
+      }
+
+      li em {
+        display: block;
+        padding-top: 10px;
+        font-size: 25px;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      li a {
+        display: block;
+        color: white;
+        font-size: 20px;
+        padding: 12px 14px;
+        text-decoration: none;
+      }
+
+      li a:hover:not(.active) {
+        background-color: rgb(179, 160, 160);
+        color: blue;
+      }
+      main {
+        padding: 30px 50px;
+      }
+
+      table {
+        width: 60%;
+        margin: auto;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid rgb(226, 213, 213);
+        padding: 11px 12px;
+      }
+      th {
+        background-color: rgb(62, 105, 215);
+        color: white;
+      }
+      tr:nth-child(even) {
+        background: rgb(207, 207, 235);
+      }
+      footer {
+        color: white;
+        text-align: center;
+        background-color: rgb(62, 105, 215);
+        padding: 0.5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><em>AutoMob-Mechanic</em></li>
+          <li><p>Hi Admin</p></li>
+          <li><a href="./home.html">Home </a></li>
+          <li><a href="./Services.html">Services</a></li>
+          <li><a href="#">Logout </a></li>
+          <li>
+            <a href="#"
+              >contact@automob.co.in <i class="fa-regular fa-envelope"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#">999-999-9999<i class="fa-solid fa-phone"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="table-main"></main>
+    <footer>
+      <p>Copyright @ 2008 AutoMob-Mechanic. All Rights Reserved.</p>
+    </footer>
+    <script>
+      let arr = [
+        {
+          cId: "C1001",
+          CustomerName: "Maria Anders",
+          ServiceName: "Car Care Service",
+          ServiceDate: "22-jan-2020",
+          Cost: 4500,
+        },
+        {
+          cId: "C1002",
+          CustomerName: "Christinia Berglund",
+          ServiceName: "Car Care Service",
+          ServiceDate: "23-jan-2020",
+          Cost: 4500,
+        },
+        {
+          cId: "C1003",
+          CustomerName: "Albert Harry",
+          ServiceName: "Preventive Maintainence Services",
+          ServiceDate: "23-jan-2020",
+          Cost: 5000,
+        },
+        {
+          cId: "C1004",
+          CustomerName: "David James",
+          ServiceName: "Preventive Maintainence Services",
+          ServiceDate: "23-jan-2020",
+          Cost: 5000,
+        },
+        {
+          cId: "C1005",
+          CustomerName: "Cathy Davis ",
+          ServiceName: "Body Repair Service",
+          ServiceDate: "24-jan-2020",
+          Cost: 7000,
+        },
+        {
+          cId: "C1006",
+          CustomerName: "John David",
+          ServiceName: " Preventive Maintainence Service",
+          ServiceDate: "24-jan-2020",
+          Cost: 5000,
+        },
+        {
+          cId: "C1007",
+          CustomerName: "Malvin Jacob",
+          ServiceName: "Body Repair Service",
+          ServiceDate: "25-jan-2020",
+          Cost: 7000,
+        },
+        {
+          cId: "C1008",
+          CustomerName: "Clara Stalin",
+          ServiceName: "Preventive Maintainence Service",
+          ServiceDate: "25-jan-2020",
+          Cost: 5000,
+        },
+        {
+          cId: "C1009",
+          CustomerName: "Arav Satya",
+          ServiceName: "Car Care Service",
+          ServiceDate: "25-jan-2020",
+          Cost: 4500,
+        },
+        {
+          cId: "C1010",
+          CustomerName: "Mark John",
+          ServiceName: "Preventive Maintainence Service",
+          ServiceDate: "26-jan-2020",
+          Cost: 5000,
+        },
+        {
+          cId: "C1011",
+          CustomerName: "James Jacod",
+          ServiceName: "Car Care Service",
+          ServiceDate: "26-jan-2020",
+          Cost: 4500,
+        },
+        {
+          cId: "C1012",
+          CustomerName: "Samuel Thomas",
+          ServiceName: "Body Repair Service",
+          ServiceDate: "26-jan-2020",
+          Cost: 7000,
+        },
+      ];
+      var customers = "";
+
+      customers += `<table>
+        <thead>
+            <th>C Id</th>
+            <th>Customer Name</th>
+            <th>Services Name</th>
+            <th>Services Date</th>
+            <th>Cost</th>
+        </thead>
+        <tbody>`;
+      arr.forEach((el) => {
+        customers += `<tr>
+                <td>${el.cId}</td>
+                <td>${el.CustomerName}</td>
+                <td>${el.ServiceName}</td>
+                <td>${el.ServiceDate}</td>
+                <td>${el.Cost}</td>
+            </tr>`;
+      });
+      customers += `</tbody>
+    </table>`;
+      document.querySelector(".table-main").innerHTML = customers;
+    </script>
+  </body>
+</html>

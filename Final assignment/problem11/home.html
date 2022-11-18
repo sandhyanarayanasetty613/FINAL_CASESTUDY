@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <script
+      src="https://kit.fontawesome.com/15dc364de3.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        padding: 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: rgb(62, 105, 215);
+        display: flex;
+        justify-content: space-evenly;
+        color: white;
+      }
+
+      li em {
+        display: block;
+        padding-top: 10px;
+        font-size: 25px;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      li a {
+        display: block;
+        color: white;
+        font-size: 20px;
+        padding: 12px 14px;
+        text-decoration: none;
+      }
+
+      li a:hover:not(.active) {
+        background-color: rgb(179, 160, 160);
+        color: blue;
+      }
+
+      main {
+        padding: 35px;
+        display: flex;
+      }
+
+      .image img {
+        width: 96%;
+        height: 530px;
+      }
+
+      button {
+        background-color: rgb(62, 105, 215);
+        color: white;
+        font-weight: bold;
+        padding: 10px;
+        border: 0;
+        margin-top: 10px;
+      }
+
+      footer {
+        color: white;
+        text-align: center;
+        background-color: rgb(62, 105, 215);
+        padding: 0.5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav>
+        <ul>
+          <li><em>AutoMob-Mechanic</em></li>
+          <li><a href="./home.html">Home </a></li>
+          <li><a href="#">Login </a></li>
+          <li>
+            <a href="#"
+              >contact@automob.co.in <i class="fa-regular fa-envelope"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#">999-999-9999<i class="fa-solid fa-phone"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- main -->
+    <main>
+      <div class="image">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcNHOchHbl-Jjxy0M4WslEJb9Z2cCPxzsVQw&usqp=CAU"
+          alt=""
+        />
+      </div>
+      <div class="content">
+        <h3>About us</h3>
+        <p>"One stop solution to get your car repaired and serviced".</p>
+        <p>
+          At AutoMob-Mechanic,we aim to make the car and service experience
+          straightforward by providing services for repairing,servicing and
+          maintaining-Lending our expertise in all forms.
+        </p>
+        <h3>How it Works?</h3>
+        <h4>Choose the service</h4>
+        <p>Choose the perfect service for your car.</p>
+        <h4>Book an Appointment</h4>
+        <p>Book an appointment with us on your convenient data.</p>
+        <h4>Get your car Fixed</h4>
+        <p>
+          No one need to wait,our representative will take care of everything on
+          their own.
+        </p>
+        <button onclick="myFunction()">Explore More</button>
+      </div>
+    </main>
+    <!-- footer -->
+    <footer>
+      <p>Copyright @ 2008 AutoMob-Mechanic. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      function myFunction() {
+        location.assign("./Services.html");
+      }
+    </script>
+  </body>
+</html>

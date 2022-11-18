@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Query</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        padding: 10px;
+      }
+      .section-1 {
+        display: flex;
+      }
+
+      .sec-1-child {
+        background-color: orange;
+        margin-bottom: 10px;
+        height: 150px;
+        width: 100%;
+        margin-right: 10px;
+      }
+
+      .section-2 {
+        background-color: rgb(168, 181, 26);
+        margin-bottom: 10px;
+        height: 320px;
+        width: 100%;
+      }
+
+      .section-3 {
+        display: flex;
+      }
+      .sec-3-child {
+        background-color: rgb(93, 121, 190);
+        margin-bottom: 10px;
+        margin-right: 10px;
+        height: 180px;
+        width: 100%;
+      }
+      .section-4 {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .sec-4-child {
+        background-color: rgb(211, 197, 197);
+        height: 200px;
+        margin: 5px 8px 0 2px;
+        width: 100%;
+      }
+
+      @media only screen and (max-width: 320px) {
+        .section-1,
+        .section-2,
+        .section-3,
+        .section-4
+           {
+          display: flex;
+          flex-direction: column;
+           } 
+      }
+
+      @media only screen and (max-width: 768px) {
+        .section-1,
+        .section-2,
+        .section-3 {
+          display: flex;
+          flex-direction: column;
+        }
+        .section-4 {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+        }
+        .sec-4-child {
+          width: 48%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="section-1">
+      <div class="sec-1-child"></div>
+      <div class="sec-1-child"></div>
+    </div>
+
+    <div class="section-2"></div>
+
+    <div class="section-3">
+      <div class="sec-3-child"></div>
+      <div class="sec-3-child"></div>
+      <div class="sec-3-child"></div>
+    </div>
+
+    <div class="section-4">
+      <div class="sec-4-child"></div>
+      <div class="sec-4-child"></div>
+      <div class="sec-4-child"></div>
+      <div class="sec-4-child"></div>
+    </div>
+  </body>
+</html>
