@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Reports</title>
+    <style>
+      .container {
+        background-color: rgb(220, 201, 238);
+        width: 500px;
+        color: rgb(224, 9, 9);
+        margin-top: 40px;
+        font-weight: 800;
+        font-size: 25px;
+        padding: 40px;
+        margin-left: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>The Array contains the list of marks Greater than 25</p>
+      <p>List of Marks: [12,18,25,24,2,5,18,20,20,21]</p>
+      <p id="app"></p>
+    </div>
+    <script>
+      const list_of_marks = [12, 18, 25, 24, 2, 5, 18, 20, 20, 21];
+      ///Average
+      let find_more_than_average = () => {
+        const average =
+          list_of_marks.reduce((a, b) => a + b, 0) / list_of_marks.length;
+        var number = 0;
+        for (i = 0; i < list_of_marks.length; i++) {
+          if (list_of_marks[i] > average) {
+            number++;
+          }
+        }
+        return number * 10;
+      };
+      // Frequency
+      var arr = list_of_marks;
+      const frequency = (arr) => {
+        const freq = [];
+        for (var i = 0; i < 25; i++) {
+          num = 0;
+          for (y in arr) {
+            if (i == arr[y]) num = num + 1;
+          }
+          freq.push(num);
+        }
+        return freq;
+      };
+      document.getElementById("app").innerHTML =
+        "Percentage of students who have scored more than the average mark of the class: " +
+        find_more_than_average() +
+        "%" +
+        "<br/>" +
+        "<br/>" +
+        "frequency: [" +
+        frequency(arr) +
+        "]";
+    </script>
+  </body>
+</html>

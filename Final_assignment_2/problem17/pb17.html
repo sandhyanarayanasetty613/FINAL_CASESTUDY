@@ -1,0 +1,158 @@
+<!-- Age Calculator -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AGE CALCULATOR</title>
+    <meta charset="utf-8" />
+    <link
+      rel="shortcut icon"
+      href="https://lh3.googleusercontent.com/M6aNIrB3YAy2Z8Bvvj_WIAXS_FdAI873AkPwiztzl1CDP7wuDhZqNGbNQ9A1vHQkO3FV"
+      type="image/x-icon"
+    />
+    <style>
+      body {
+        background-color: rgb(63, 58, 58);
+      }
+      .age-container {
+        width: 65%;
+        margin: 100px auto;
+        background: #ebe7e7;
+        border: 3px solid #ccc;
+        border-radius: 10px;
+      }
+      #arrow {
+        width: 20px;
+        height: 15px;
+        border-radius: 50%;
+      }
+
+      .header {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        background: #355494;
+        margin: 0;
+        padding: 8px;
+        padding-left: 10px;
+        color: rgb(250, 238, 238);
+      }
+      .content {
+        margin: 30px auto;
+        width: 400px;
+        height: 150px;
+      }
+      button {
+        background: green;
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 0.7rem;
+        border: 0;
+        width: 9rem;
+        margin-left: 55px;
+      }
+
+      #date1 {
+        margin-left: 30px;
+      }
+
+      #down-arrow {
+        margin-right: 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="age-container">
+      <p class="header">
+        <span id="down-arrow"
+          ><img
+            src="https://i.pinimg.com/736x/5e/8f/37/5e8f3769652154c09064e81af4ea0f8a.jpg"
+            id="arrow"
+        /></span>
+        Modify the values and click the Calculate button to use
+      </p>
+      <div class="content">
+        <label>Date of Birth: </label>
+        <input type="date" id="date1" />
+        <br />
+        <br />
+        <br />
+        <label>Age at the Date of: </label>
+        <input type="date" id="date2" />
+        <br />
+        <br />
+        <br />
+        <button onclick="ageCalculator()">Calculate</button>
+        <p id="result"></p>
+      </div>
+    </div>
+    <script>
+      var ageCalculator = () => {
+        var userinput = document.getElementById("date1").value; //User Input
+        var dob = new Date(userinput);
+        if (userinput != null && userinput != "") {
+          var dobYear = dob.getYear();
+          var dobMonth = dob.getMonth();
+          var dobDate = dob.getDate();
+          var d2 = document.getElementById("date2").value; // System Date
+          var present = new Date(d2);
+          var currentYear = present.getYear();
+          var currentMonth = present.getMonth();
+          var currentDate = present.getDate();
+          var age = {};
+          var output = "";
+
+          yearAge = currentYear - dobYear;
+
+          if (currentMonth >= dobMonth) var monthAge = currentMonth - dobMonth;
+          else {
+            yearAge--;
+            var monthAge = 12 + currentMonth - dobMonth;
+          }
+
+          if (currentDate >= dobDate) var dateAge = currentDate - dobDate;
+          else {
+            monthAge--;
+            var dateAge = 31 + currentDate - dobDate;
+
+            if (monthAge < 0) {
+              monthAge = 11;
+              yearAge--;
+            }
+          }
+          //Age Object
+          age = {
+            years: yearAge,
+            months: monthAge,
+            days: dateAge,
+          };
+
+          if (age.years > 0 && age.months > 0 && age.days > 0)
+            output =
+              age.years +
+              " years, " +
+              age.months +
+              " months, and " +
+              age.days +
+              " days old.";
+          else if (age.years == 0 && age.months == 0 && age.days > 0)
+            output = "Only " + age.days + " days old!";
+          else if (age.years > 0 && age.months == 0 && age.days == 0)
+            output = age.years + " years old";
+          else if (age.years > 0 && age.months > 0 && age.days == 0)
+            output = age.years + " years and " + age.months + " months old.";
+          else if (age.years == 0 && age.months > 0 && age.days > 0)
+            output = age.months + " months and " + age.days + " days old.";
+          else if (age.years > 0 && age.months == 0 && age.days > 0)
+            output = age.years + " years, and" + age.days + " days old.";
+          else if (age.years == 0 && age.months > 0 && age.days == 0)
+            output = age.months + " months old.";
+          else output = "Date of Birth cannot take future values";
+          //Output
+          alert(output);
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="https://cdn-icons-png.flaticon.com/128/2947/2947698.png"
+      type="image/x-icon"
+    />
+    <title>Search Functionality using Fetch API</title>
+    <style>
+      body {
+        height: 200px;
+        background-color: rgb(180, 236, 236);
+      }
+
+      #myForm {
+        width: 800px;
+        background-color: rgb(156, 116, 194);
+        height: 400px;
+        margin: auto;
+        margin-top: 30px;
+        border-radius: 20px;
+        border-top: 25px solid green;
+      }
+      form div {
+        margin: 50px;
+        display: inline-block;
+      }
+      h1 {
+        text-align: center;
+        text-decoration: underline;
+        color: blue;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+      #countrySel,
+      #stateSel,
+      #citySel,
+      #zipSel {
+        padding: 12px;
+        background-color: rgb(77, 255, 57);
+        color: red;
+        font-size: 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 700;
+        border-radius: 8px;
+        border: 6px double red;
+      }
+    </style>
+    <script>
+      let countryStateInfo;
+      fetch("./countriesState.json")
+        .then((res) => res.json())
+        .then(function (json) {
+          countryStateInfo = json;
+          var countrySel = document.getElementById("countrySel");
+          var stateSel = document.getElementById("stateSel");
+          var citySel = document.getElementById("citySel");
+          var zipSel = document.getElementById("zipSel");
+
+          //Load countries
+          for (var country in countryStateInfo) {
+            countrySel.options[countrySel.options.length] = new Option(
+              country,
+              country
+            );
+          }
+
+          //Country Changed
+          countrySel.onchange = function () {
+            stateSel.length = 1; // remove all options  first
+            citySel.length = 1; // remove all options  first
+            zipSel.length = 1; // remove all options  first
+
+            if (this.selectedIndex < 1) return; // done
+
+            for (var state in countryStateInfo[this.value]) {
+              stateSel.options[stateSel.options.length] = new Option(
+                state,
+                state
+              );
+            }
+          };
+
+          //State Changed
+          stateSel.onchange = function () {
+            citySel.length = 1; // remove all city options initially
+            zipSel.length = 1; // remove all zip options intially
+
+            if (this.selectedIndex < 1) return; // done
+
+            for (var city in countryStateInfo[countrySel.value][this.value]) {
+              citySel.options[citySel.options.length] = new Option(city, city);
+            }
+          };
+
+          //City Changed
+          citySel.onchange = function () {
+            zipSel.length = 1; // remove all options
+
+            if (this.selectedIndex < 1) return; // done
+
+            var zips =
+              countryStateInfo[countrySel.value][stateSel.value][this.value];
+            for (var i = 0; i < zips.length; i++) {
+              zipSel.options[zipSel.options.length] = new Option(
+                zips[i],
+                zips[i]
+              );
+            }
+          };
+        })
+
+        .catch((error) => {
+          console.log(error);
+        });
+    </script>
+  </head>
+  <body>
+    <h1>Selection Of Country, State and City using Fetch API</h1>
+    <form name="myform" id="myForm">
+      <div id="country">
+        <select id="countrySel" size="1">
+          <option value="" selected="selected">** Select Country **</option>
+        </select>
+      </div>
+      <div id="state">
+        <select id="stateSel" size="1">
+          <option value="" selected="selected">** Select State **</option>
+        </select>
+      </div>
+
+      <div class="city">
+        <select id="citySel" size="1">
+          <option value="" selected="selected">** Select City **</option>
+        </select>
+      </div>
+      <div class="zip">
+        <select id="zipSel" size="1">
+          <option value="" selected="selected">** Select Zip **</option>
+        </select>
+      </div>
+    </form>
+  </body>
+</html>

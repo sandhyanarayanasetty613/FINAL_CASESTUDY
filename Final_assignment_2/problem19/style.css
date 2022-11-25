@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: wheat;
+}
+
+.start_btn,
+.info_box,
+.quiz_box,
+.result_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: all 0.3s ease;
+}
+
+.info_box.activeInfo,
+.quiz_box.activeQuiz,
+.result_box.activeResult {
+  opacity: 1;
+  z-index: 5;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Styling for Quiz start button */
+.start_btn button {
+  font-size: 25px;
+  font-weight: 500;
+  padding: 15px 30px;
+  outline: none;
+  border: none;
+  width: 200px;
+  height: 60px;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+  background-color: rgb(18, 166, 166);
+}
+
+/* Styling for Screen 1 */
+.info_box {
+  width: 950px;
+  user-select: none;
+  background: #fff;
+  padding: 30px;
+  height: 400px;
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.info_box .info-title {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.info_box .info-list {
+  padding: 10px 30px 50px;
+}
+
+.info_box .info-list .info {
+  margin: 5px 0;
+  font-size: 20px;
+}
+
+.info_box .buttons button {
+  margin: 0 20px;
+  height: 50px;
+  width: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.restart {
+  background-color: black;
+  color: white;
+}
+
+.quit {
+  background-color: white;
+}
+
+.restart:hover {
+  background-color: whitesmoke;
+  color: black;
+}
+
+.quit:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Styling for Screen-2  */
+.quiz_box {
+  width: 1000px;
+  background-color: rgb(238, 245, 245);
+  padding: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.quiz_box header {
+  background-color: rgb(159, 211, 234);
+  padding: 15px 0px;
+  margin-bottom: 10px;
+}
+
+.quiz_box header i {
+  font-size: 20px;
+  margin-left: 50px;
+  background-color: rgba(0, 0, 0, 0.478);
+  color: rgb(254, 254, 254);
+  border-radius: 50%;
+}
+
+.quiz_box header .icon {
+  margin-left: -8px;
+  display: none;
+}
+
+.quiz_box .que_text {
+  padding: 20px 0;
+}
+
+.que_text p {
+  margin-bottom: 15px;
+  padding-left: 45px;
+}
+
+.option {
+  border: 2px solid rgb(168, 161, 161);
+  padding: 15px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+.option:hover {
+  background-color: rgb(121, 109, 109);
+}
+.option_list {
+  cursor: pointer;
+  padding-left: 30px;
+}
+
+.option_list .option.correct {
+  background-color: rgb(168, 235, 168);
+  color: green;
+  border-color: #c3e6cb;
+}
+
+.option_list .option.incorrect {
+  background-color: rgb(238, 168, 166);
+  color: rgb(245, 14, 14);
+  border-color: #c3e6cb;
+}
+
+.option_list .option.disabled {
+  pointer-events: none;
+}
+
+footer {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.next_btn {
+  background-color: black;
+  height: 50px;
+  color: white;
+  width: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  padding: 8px 10px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.next_btn:hover {
+  background-color: #fff;
+  color: black;
+}
+
+/* Stylinfg for Result screen */
+.result_box {
+  width: 500px;
+  background: #fff;
+  padding: 30px;
+  height: 0 auto;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+.result_box header {
+  background-color: rgb(50, 49, 49);
+  color: white;
+  padding: 35px 30px;
+}
+
+section {
+  width: 100%;
+  margin-top: 10px;
+  height: 80%;
+}
+
+.correct_ans_display,
+.wrong_ans_display {
+  height: 40%;
+  background-color: rgb(167, 237, 167);
+}
+
+.wrong_ans_display {
+  background-color: rgb(223, 142, 142);
+}
+
+.result_box footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.result_box footer button {
+  padding: 10px;
+  border: 0;
+  outline: 0;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.result_box footer button:hover {
+  background-color: grey;
+}
+
+.fa-handshake {
+  font-size: 200px;
+  padding-left: 40px;
+  color: yellow;
+}

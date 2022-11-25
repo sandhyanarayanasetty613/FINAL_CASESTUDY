@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ARRAY METHODS</title>
+    <link
+      rel="shortcut icon"
+      href="https://static.thenounproject.com/png/2732962-200.png"
+      type="image/x-icon"
+    />
+    <style>
+      body {
+        background-color: antiquewhite;
+      }
+      .container {
+        margin: 8% 0 0 22%;
+        border: 40px solid black;
+        width: 750px;
+        padding-left: 35px;
+      }
+      button {
+        color: #fff;
+        background-color: rgb(231, 130, 41);
+        padding: 0.8rem;
+        margin: 10px;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+      }
+      .output-container,
+      .input-container {
+        display: none;
+      }
+      .input-container {
+        border: 2px dashed rgb(92, 87, 87);
+        padding-left: 150px;
+        padding-top: 20px;
+        width: 350px;
+        margin-top: 20px;
+      }
+      .input-container input {
+        margin-top: 5px;
+        padding: 10px;
+        background-color: rgb(232, 137, 137);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main-container">
+        <button id="add" onclick="addElements()">Add Element</button>
+        <button id="remove" onclick="remove()">Remove Element</button>
+        <button id="removeAll" onclick="removeAll()">Remove All</button>
+        <button id="toUpper" onclick="toUpperCase()">Display Upper Case</button>
+        <button id="toLower" onclick="toLowerCase()">Display Lower Case</button
+        ><br />
+        <!-- Input -->
+        <div class="input-container">
+          <input type="text" id="item1" name="item1" /><br /><br />
+          <input type="text" id="item2" name="item2" /><br /><br />
+          <input type="text" id="item3" name="item3" /><br /><br />
+        </div>
+
+        <button id="submit" onclick="submit()">Submit</button>
+        <!-- output -->
+        <div class="output-container">
+          <strong>Your selected values are: </strong>
+          <p id="output"></p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var addElements = () => {
+        document.querySelector(".input-container").style.display = "block";
+      };
+      let submit = () => {
+        var fruits = [];
+        var item1 = document.getElementById("item1").value;
+        var item2 = document.getElementById("item2").value;
+        var item3 = document.getElementById("item3").value;
+        fruits.push(item1, item2, item3);
+        document.querySelector(".output-container").style.display = "block";
+        document.getElementById("output").innerHTML = fruits.join("<br/>");
+        return fruits;
+      };
+
+      let remove = () => {
+        var y = document.getElementById("output").innerHTML;
+        var fruitsArr = y.split("<br>");
+        fruitsArr.pop();
+        document.getElementById("output").innerHTML = fruitsArr.join("<br/>");
+      };
+
+      let removeAll = () => {
+        var y = document.getElementById("output").innerHTML;
+        var fruitsArr = y.split("<br>");
+        fruitsArr.splice(0, fruitsArr.length);
+        document.getElementById("output").innerHTML = fruitsArr;
+      };
+
+      var toUpperCase = () => {
+        var y = document.getElementById("output").innerHTML;
+        var fruitsArr = y.split("<br>");
+        var upper = fruitsArr.map((element) => {
+          return element.toUpperCase();
+        });
+        document.getElementById("output").innerHTML = upper.join("<br/>");
+      };
+
+      var toLowerCase = () => {
+        var y = document.getElementById("output").innerHTML;
+        var fruitsArr = y.split("<br>");
+        var lower = fruitsArr.map((element) => {
+          return element.toLowerCase();
+        });
+        document.getElementById("output").innerHTML = lower.join("<br/>");
+      };
+    </script>
+  </body>
+</html>
